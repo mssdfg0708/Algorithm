@@ -1,8 +1,6 @@
 import sys
 from collections import deque
 
-# BFS 로 풀이
-
 # n 도시개수 m 도로개수 k 거리정보 x 출발도시
 n, m, k, x = map(int, sys.stdin.readline().split())
 graph = [[] for i in range(n + 1)]

@@ -1,8 +1,6 @@
 import sys
 from collections import deque
 
-# BFS 로 풀이
-
 # n 가로 세로 길이 k 바이러스 수 s 시간 x 좌표 y 좌표
 n, k = map(int, sys.stdin.readline().split())
 board = list()
