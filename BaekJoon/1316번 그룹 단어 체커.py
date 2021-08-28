@@ -6,8 +6,8 @@ def check_group_word(word):
     for letter in word:
         if last_letter != letter:
             letter_list.append(last_letter)
-        if letter in letter_list:
-            return 0
+            if letter in letter_list:
+                return 0
         last_letter = letter
     return 1
 
