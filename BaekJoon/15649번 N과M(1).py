@@ -1,15 +1,21 @@
-from itertools import permutations
 import sys
 
-n, m = map(int, input().split())
-output = ''
+N, M = map(int, input().split())
+result = []
+visitied = [False]*(N+1)
 
-n_list = []
-for i in range(1, n+1):
-    n_list.append(str(i))
+def dfs(depth, N, M):
+    if depth == M+1:
+        for i in range(0,len(result)):
+            print(result[i],end=" ")
+        print()
+        return
+    for num in range(1,N+1):
+        if not visitied[num]:
+            visitied[num] = True
+            result.append(num)
+            dfs(depth+1, N, M)
+            visitied[num] = False
+            result.pop()
 
-for i in permutations(n_list, m):
-    for item in i:
-        output += ' ' + item
-    print(output.strip())
-    output = ''
+dfs(1,N,M)
