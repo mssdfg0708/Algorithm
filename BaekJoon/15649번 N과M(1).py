@@ -1,21 +1,20 @@
-import sys
-
-N, M = map(int, input().split())
+max_n, max_depth = map(int, input().split())
 result = []
-visitied = [False]*(N+1)
+visited = [False] * (max_n+1)
 
-def dfs(depth, N, M):
-    if depth == M+1:
-        for i in range(0,len(result)):
-            print(result[i],end=" ")
+def dfs(depth, n = 1):
+    if depth >= max_depth + 1:
+        for item in result:
+            print(item, end = ' ')
         print()
         return
-    for num in range(1,N+1):
-        if not visitied[num]:
-            visitied[num] = True
-            result.append(num)
-            dfs(depth+1, N, M)
-            visitied[num] = False
+    for n in range(1, max_n + 1):
+        if not visited[n]:
+            visited[n] = True
+            result.append(n)
+            dfs(depth + 1, n)
+            visited[n] = False
             result.pop()
 
-dfs(1,N,M)
+# 초기 depth 는 1
+dfs(1)
