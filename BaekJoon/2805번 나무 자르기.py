@@ -5,25 +5,18 @@ max_height = 0
 for height in tree_list:
     max_height = max(max_height, height)
 
+low, high = 0, max_height
 
-def binary_search(low, mid, high):
-    while True:
-        if mid == low or mid == high:
-            print(mid)
-            return
-        total = 0
-        for height in tree_list:
-            if height - mid > 0:
-                total += (height - mid)
-        if total < m:
-            high = mid
-            mid = (high+low)//2
-        if total > m:
-            low = mid
-            mid = (high+low)//2
-        if total == m:
-            print(mid)
-            return
+while low <= high:
+    mid = (low+high) // 2
+    total = 0
+    for height in tree_list:
+        if height >= mid:
+            total += height - mid
 
+    if total >= m:
+        low = mid + 1
+    else:
+        high = mid - 1
 
-binary_search(0, max_height//2, max_height)
+print(high)
