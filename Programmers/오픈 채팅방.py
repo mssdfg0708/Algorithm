@@ -24,7 +24,6 @@ def solution(record):
             continue
 
     # answer 입력
-    # "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."]
     for item in new_record:
         # Enter Query
         if item[0] == 'Enter':
@@ -40,6 +39,7 @@ def solution(record):
             continue
 
     return answer
+
 
 record = ["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"]
 solution(record)
