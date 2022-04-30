@@ -57,6 +57,3 @@ def solution(n, results):
 input_n = 5
 input_results = [[4, 3], [4, 2], [3, 2], [1, 2], [2, 5]]
 print(solution(input_n, input_results))
-
-# person[2][0] 2번 선수가 이긴 선수 목록
-# person[2][1] 2번 선수가 진 선수 목록
