@@ -1,0 +1,35 @@
+alphabets = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8,
+             'i': 9, 'j': 10, 'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15, 'p': 16,
+             'q': 17, 'r': 18, 's': 19, 't': 20, 'u': 21, 'v': 22, 'w': 23, 'x': 24,
+             'y': 25, 'z': 26}
+
+letter_input = input()
+base_letter = []
+for item in letter_input:
+    num = alphabets[item]
+    base_letter.append(num)
+
+candidates = []
+for first_divide in range(1, len(base_letter) - 1):
+    for second_divide in range(first_divide+1, len(base_letter)):
+        first_letter = base_letter[:first_divide]
+        second_letter = base_letter[first_divide:second_divide]
+        third_letter = base_letter[second_divide:]
+
+        first_letter.reverse()
+        second_letter.reverse()
+        third_letter.reverse()
+        letter = first_letter + second_letter + third_letter
+        candidates.append(letter)
+
+candidates.sort()
+answer = candidates[0]
+
+for index in range(len(answer)):
+    for key, value in alphabets.items():
+        if answer[index] == value:
+            answer[index] = key
+            break
+
+answer = "".join(answer)
+print(answer)
