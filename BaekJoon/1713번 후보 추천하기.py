@@ -6,9 +6,13 @@ candidates = []
 recommends = [0 for _ in range(101)]
 query = list(map(int, sys.stdin.readline().split()))
 for candidate in query:
-    if len(candidates) < CANDIDATE:
+    if len(candidates) < CANDIDATE and candidate not in candidates:
         candidates.append(candidate)
         recommends[candidate] = 1
+        continue
+
+    if len(candidates) < CANDIDATE and candidate in candidates:
+        recommends[candidate] += 1
         continue
 
     if candidate in candidates:
@@ -21,7 +25,6 @@ for candidate in query:
         if recommends[index] < delete_value:
             delete_value = recommends[index]
             target = index
-            print(target, candidates)
     candidates.remove(target)
     candidates.append(candidate)
     recommends[target] = 0
